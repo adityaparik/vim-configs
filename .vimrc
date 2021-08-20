@@ -1,5 +1,6 @@
 set exrc
 set guicursor=
+
 set nu
 set relativenumber
 set nohlsearch
@@ -7,7 +8,10 @@ set hidden
 set noerrorbells
 set tabstop=4 softtabstop=4
 set expandtab
+
 filetype plugin indent on
+set omnifunc=syntaxcomplete#Complete
+
 set noswapfile
 set nobackup
 set undodir=~/.vim/undodir
@@ -20,7 +24,6 @@ set signcolumn=yes
 " Give more space for displaying messages
 set cmdheight=2
 
-" Autoinstall vim-plug
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
   silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
@@ -29,11 +32,14 @@ endif
 
 call plug#begin('~/.vim/plugged')
     Plug 'lervag/vimtex'
+"    Plug 'sheerun/vim-polyglot'
     Plug 'gruvbox-community/gruvbox'
+" MUST INSTALL ALL DEPENDENCIES FOR YCM, CHECK THE DOCUMENTATION
+    Plug 'ycm-core/YouCompleteMe'
 call plug#end()
 
 colorscheme gruvbox
-highlight Normal guibg=black
+set background=dark
 
 if has('gui_running')
     set guifont=Monospace\ 14
