@@ -10,8 +10,15 @@ set exrc
 set nu
 set relativenumber
 
+" Once a search has been initiated using <CR>, highlighting is removed from results
 set nohlsearch
+
+" Vim by default does not allow leaving a buffer before its written
+" this option allows us to leave a unsaved buffer and keep it hidden
+" and accessible when required
 set hidden
+
+" Turn off annoying error bells
 set noerrorbells
 
 " Set tab size to 4 spaces, make tab a softtab of 4 spaces
