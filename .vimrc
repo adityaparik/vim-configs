@@ -40,6 +40,29 @@ set signcolumn=yes
 " Give more space for displaying messages
 set cmdheight=2
 
+" Vim's splits by default appear above and left of the current window
+" changing this behavior to below and right
+set splitbelow splitright
+
+" Remap split navigation commands to simpler ones
+" nnoremap <C-h> <C-w>h
+" nnoremap <C-j> <C-w>j
+" nnoremap <C-k> <C-w>k
+" nnoremap <C-l> <C-w>l
+
+" Remap split resizing commands
+noremap <silent> <C-Left> :vertical resize +3<CR>
+noremap <silent> <C-Right> :vertical resize -3<CR>
+noremap <silent> <C-Up> :resize +3<CR>
+noremap <silent> <C-Down> :resize -3<CR>
+
+" Remap keybindings for swapping horizontal or vertical split orientation
+" map <Leader>th <C-w>t<C-w>H          " Swaps a sp to a vsp
+" map <Leader>tk <C-w>t<C-w>K          " Swaps a vsp to a sp
+
+" Removes pipes | that act as split separater
+set fillchars+=vert:\
+
 " Vim's completion menu has some irritations by default
 " coc.nvim by default overwrites completeopt settings
 " set completeopt=menuone,noinsert,noselect
@@ -50,10 +73,10 @@ let mapleader = "\<space>" " map leader to Space
 let maplocalleader = "\\" " map leader to Space
 
 if has('gui_running')
-    set guifont=Ubuntu\ Mono\ 24
+    set guifont=Ubuntu\ Mono\ 16
 endif
 
-" Make sure to install vim-plug
+" The following checks Make sure that vim-plug is installed
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
   silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
