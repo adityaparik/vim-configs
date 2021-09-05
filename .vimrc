@@ -24,6 +24,7 @@ set noerrorbells
 " Set tab size to 4 spaces, make tab a softtab of 4 spaces
 set tabstop=4 softtabstop=4
 set expandtab
+set shiftwidth=2
 
 syntax enable
 filetype plugin indent on
